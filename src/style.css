@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-stone-200 text-black;
+}
+
+.dark body {
+  /* 这里暗夜模式只能这样写，不知道为啥，好像因为是全局的所以只能这样写，scoped里就不能这样写 */
+  @apply bg-zinc-800 text-white;
+}
