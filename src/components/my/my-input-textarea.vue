@@ -1,14 +1,13 @@
 <template>
-    <textarea v-model="value" :placeholder="placeholder" :maxlength="maxlength"></textarea>
+    <textarea v-model="content" :placeholder="placeholder" :maxlength="maxlength"></textarea>
 </template>
 
 <script setup>
-import { defineProps, ref, watch } from 'vue';
-
+import { ref, watch } from 'vue'
 const props = defineProps({
-    modelValue: {
+    content: { // 传入输入内容
         type: String,
-        default: ''
+        require: true,
     },
     placeholder: {
         type: String,
@@ -16,18 +15,19 @@ const props = defineProps({
     },
     maxlength: {
         type: Number,
+        default: 200,
     },
-});
+})
 
-const value = ref(props.modelValue);
+const content = ref('')
+watch(props, (newValue) => { // 父组件改变了 content 值这里也改变
+    content.value = newValue.content
+})
 
-watch(() => props.modelValue, (newVal) => {
-    value.value = newVal;
-});
-
-watch(value, (newVal) => {
-    emit('update:modelValue', newVal);
-});
+const emit = defineEmits(['updateContent']) // 这里定义类似 godot 的信号
+watch(content, (newValue) => { // 双向绑定，一但 content 发生改变，向父节点传值
+    emit('updateContent', newValue)
+})
 </script>
 
 <style scoped></style>

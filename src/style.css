@@ -19,3 +19,27 @@ body {
   /* 这里暗夜模式只能这样写，不知道为啥，好像因为是全局的所以只能这样写，scoped里就不能这样写 */
   @apply bg-zinc-800 text-white;
 }
+
+.flex-container {
+  /* （启用 flex 布局 子元素之间均匀分布 子元素垂直居中对齐） */
+  @apply flex justify-between items-center;
+}
+
+.flex-center {
+  /* （启用 flex 布局 子元素居中） */
+  @apply flex justify-center items-center;
+}
+
+
+/* 组件淡入淡出过渡 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease !important;
+}
+
+/* （只设置过渡的初始值，因为组件本身的样式就是过渡的结束值） */
+.fade-enter-from,
+.fade-leave-to {
+  transform: translateY(30px);
+  opacity: 0 !important;
+}

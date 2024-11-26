@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 // 设置3个传参，type，circle，src
 const props = defineProps({
@@ -21,7 +21,7 @@ const props = defineProps({
         type: String,
         required: true
     }
-});
+})
 </script>
 
 <style scoped></style>

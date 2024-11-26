@@ -45,19 +45,21 @@ onBeforeUnmount(() => { // 组件被卸载时，取消监听滚动事件
 const dark_img = "src/assets/MaterialSymbolsDarkMode.svg"
 const light_img = "src/assets/LsDark.svg"
 const img_src = ref(dark_img)
+
+
+const isDarkMode = () => {
+    // （document.documentElement 属性获取当前文档的根元素）
+    // （.classList 是一个用于操作元素的类属性的 DOM 接口，提供了许多有用的方法来添加、删除和切换类）
+    return document.documentElement.classList.contains('dark');
+}
 const toggleDarkMode = () => {
-    proxy.$toggleDarkMode()
-    if (proxy.$isDarkMode()) img_src.value = dark_img
+    document.documentElement.classList.toggle('dark');
+    if (isDarkMode()) img_src.value = dark_img
     else img_src.value = light_img
 }
 </script>
 
 <style scoped lang="less">
-.flex-container {
-    /* （启用 flex 布局 子元素之间均匀分布 子元素垂直居中对齐） */
-    @apply flex justify-between items-center;
-}
-
 .header {
     /* （背景蓝色 文字白色 大阴影效果 固定定位 距顶部0 距左侧0 距右侧0 下边框 下边框颜色 过渡效果 过渡时间300ms） */
     @apply bg-white text-black shadow-lg fixed top-0 left-0 right-0 border-b border-neutral-600 transition-all duration-300;

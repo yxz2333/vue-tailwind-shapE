@@ -4,12 +4,14 @@
     </el-card>
 </template>
 
-<script setup></script>
+<script setup>
+
+</script>
 
 <style scoped lang="less">
 .el-card {
     /*（移除阴影 暗色模式背景颜色和文字颜色 圆角 水平垂直内边距）*/
-    @apply shadow-none dark:bg-zinc-700 dark:text-white rounded-lg;
+    @apply shadow-none bg-zinc-100 dark:bg-zinc-700 dark:text-white rounded-lg;
 
     /*(设置transiton动画 持续时间)*/
     @apply transition ease-in-out duration-300;
