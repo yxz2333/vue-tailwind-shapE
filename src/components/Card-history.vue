@@ -125,21 +125,21 @@ const _handleDate = (date) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 /* (th：表头单元格; tr：表格的行; td：表格的单元格) */
-::v-deep .el-table,
-::v-deep .el-table__expanded-cell,
+:deep(.el-table),
+:deep(.el-table__expanded-cell),
 /* (应用于所有.el-table中的<th/tr/td>元素) */
-::v-deep .el-table th,
-::v-deep .el-table tr,
-::v-deep .el-table td {
+:deep(.el-table th),
+:deep(.el-table tr),
+:deep(.el-table td) {
     @apply dark:bg-zinc-600 dark:text-white;
 }
 
 /* (.el-table__body-wrapper .el-table__body: 在 wrapper 包装器里找到主体部分) */
 /* (tr:hover>td：当表格行（<tr>元素）被悬停（hover）时，应用于该行内所有直接子元素（即单元格<td>）的样式) */
-::v-deep .el-table__body-wrapper .el-table__body tr:hover>td,
-::v-deep .el-table__body-wrapper .el-table__body tr.current-row>td {
+:deep(.el-table__body-wrapper .el-table__body tr:hover>td),
+:deep(.el-table__body-wrapper .el-table__body tr.current-row>td) {
     @apply dark:bg-zinc-500;
 }
 </style>
